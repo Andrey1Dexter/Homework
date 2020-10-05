@@ -31,7 +31,7 @@ my_list = [1, 2, 3, 4]
 my_list.append(my_list.pop(0))
 print(my_list)
 
-################################# 6
+################################ 6 (долгий и глупый вариант решения)
 my_str = '43 больше чем 34 но меньше чем 56'
 new_str = []
 zero = 0
@@ -48,6 +48,10 @@ while zero < len(my_str):
     zero += 1
     if digits != '':
         new_str.append(int(digits))
+print(sum(new_str))
+################################## 6 (быстрый и разумный вариант решения))
+my_str = '43 больше чем 34 но меньше чем 56'
+new_str = [int(digits) for digits in my_str.split() if digits.isdigit()]
 print(sum(new_str))
 
 ################################# 7
