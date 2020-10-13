@@ -4,8 +4,7 @@ from random import randint, choice
 def domains():
     with open('domains.txt'):
         domain_list = [line[1:-1] for line in open('domains.txt')]
-        domain_list_1 = [random.choice(domain_list) for _ in range(1, len(domain_list)-1)]
-        return domain_list_1
+        return domain_list
 
 ############### 2 #############
 def names():
