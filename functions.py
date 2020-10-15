@@ -32,7 +32,7 @@ def sort_ip_key(ip):
 
 
 
-def generate_list_ip_address(number: int, repeat=True, sort=False, mask = 'xx.x.xxx.xx') -> list:
+def generate_list_ip_address(number: int, repeat=True, sort=False, mask = '') -> list:
     ip_list = []
     for _ in range(number):
         ip_list.append(get_ip())
