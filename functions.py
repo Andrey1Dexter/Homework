@@ -1,11 +1,21 @@
 import random
 from random import randint
 
-def get_rand_0_255():
-    return str(randint(1111111, 9999999))
+def get_rand_0_255(mask_x):
+    if mask_x <= 1:
+        min = 0
+        max = 9
+    elif mask_x == 2:
+        min = 10
+        max = 99
+    else:
+        min = 100
+        max = 255
 
-def get_ip():
-    ip_parts = [str(get_rand_0_255()[symbol: symbol +2]) for symbol in range(0, len(str(get_rand_0_255())), 2)]
+    return str(randint(min, max))
+
+def get_ip(mask = 'xx.x.xxx.xx'):
+    ip_parts = [str(get_rand_0_255(len(some))) for some in mask.split('.')]
     return ".".join(ip_parts)
 
 def sort_ip_key(ip):
@@ -22,7 +32,7 @@ def sort_ip_key(ip):
 
 
 
-def generate_list_ip_address(number: int, repeat=True, sort=False) -> list:
+def generate_list_ip_address(number: int, repeat=True, sort=False, mask = 'xx.x.xxx.xx') -> list:
     ip_list = []
     for _ in range(number):
         ip_list.append(get_ip())
